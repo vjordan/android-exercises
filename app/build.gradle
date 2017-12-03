@@ -20,12 +20,10 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
     def support_version = "27.0.2"
 
-    compile(
-            "com.android.support:appcompat-v7:$support_version",
-            "com.android.support:design:$support_version"
-    )
+    implementation("com.android.support:appcompat-v7:$support_version",
+            "com.android.support:design:$support_version")
 }
