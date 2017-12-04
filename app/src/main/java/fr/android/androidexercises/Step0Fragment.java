@@ -2,16 +2,18 @@ package fr.android.androidexercises;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Step0Fragment extends Fragment {
 
-    private static final String step0 = "This is step 0";
+    private static final String STEP_0 = "This is step 0";
 
     private TextView textView;
     private OnNextStep0Listener listener;
@@ -24,28 +26,29 @@ public class Step0Fragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_step0, container, false);
-        // TODO findViewById textView (TextView)
-        // TODO findViewById nextButton (Button)
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO call onNext() from listener
-            }
+
+        // TODO find TextView and set text
+
+        // TODO find Button and set listener
+        Button nextButton;
+        nextButton.setOnClickListener(v -> {
+            // TODO call listener
         });
+
         return view;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // TODO setText(step0)
+
+        // TODO setText(STEP_0)
     }
 
     public interface OnNextStep0Listener {
-
         // TODO add onNext() method
-
     }
+
 }
