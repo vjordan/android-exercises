@@ -22,11 +22,10 @@ public class LibraryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final TextView messageTextView =
-                (TextView) findViewById(R.id.messageTextView);
+        final TextView messageTextView = findViewById(R.id.messageTextView);
 
         OkHttpClient client = new OkHttpClient();
 
@@ -38,27 +37,26 @@ public class LibraryActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                // Does nothing but could log error
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     final JSONObject user = new JSONObject(response.body().string());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                messageTextView.setText(
-                                        getString(R.string.hello, user.get("name"))
-                                );
-                            } catch (JSONException ignored) {
-                            }
+                    runOnUiThread(() -> {
+                        try {
+                            messageTextView.setText(
+                                    getString(R.string.hello, user.get("name"))
+                            );
+                        } catch (JSONException ignored) {
+                            // Ignored but could be logged
                         }
                     });
                 } catch (JSONException ignored) {
+                    // Ignored but could be logged
                 }
             }
         });
     }
-
 }
