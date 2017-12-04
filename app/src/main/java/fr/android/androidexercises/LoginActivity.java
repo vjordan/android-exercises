@@ -19,23 +19,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginLayout = (ViewGroup) findViewById(R.id.loginLayout);
+        loginLayout = findViewById(R.id.loginLayout);
         loggedText = findViewById(R.id.loggedText);
-        passwordEdit = (EditText) findViewById(R.id.passwordEdit);
+        passwordEdit = findViewById(R.id.passwordEdit);
 
         presenter = new LoginPresenter(this);
 
-        findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.checkCredentials(passwordEdit.getText().toString());
-            }
-        });
+        findViewById(R.id.loginButton).setOnClickListener(v ->
+                presenter.checkCredentials(passwordEdit.getText().toString()));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
         notLogged();
     }
 
