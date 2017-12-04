@@ -15,10 +15,10 @@ public class LibraryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        checkBox = (CheckBox) findViewById(R.id.checkBox);
+        checkBox = findViewById(R.id.checkBox);
     }
 
     @Override
