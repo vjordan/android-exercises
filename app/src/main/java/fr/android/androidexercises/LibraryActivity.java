@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 public class LibraryActivity extends AppCompatActivity {
@@ -15,20 +14,17 @@ public class LibraryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button openButton = (Button) findViewById(R.id.openButton);
+        Button openButton = findViewById(R.id.openButton);
 
         Book book = new Book("Garry Whopper", "CK Rowling");
 
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
-                // TODO Add book to intent
-                startActivity(intent);
-            }
+        openButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+            // TODO add parcel book to intent
+            startActivity(intent);
         });
     }
 

@@ -17,10 +17,10 @@ public class BookActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Book book = intent.getParcelableExtra(BOOK);
 
-        TextView authorTextView = (TextView) findViewById(R.id.authorTextView);
+        TextView authorTextView = findViewById(R.id.authorTextView);
         authorTextView.setText(book.getAuthor());
 
-        TextView nameTextView = (TextView) findViewById(R.id.nameTextView);
+        TextView nameTextView = findViewById(R.id.nameTextView);
         nameTextView.setText(book.getName());
     }
 

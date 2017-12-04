@@ -1,6 +1,6 @@
 package fr.android.androidexercises;
 
-// TODO use parcel
+// TODO parcel
 
 class Book {
 
