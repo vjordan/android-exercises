@@ -3,8 +3,6 @@ package fr.android.androidexercises;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import timber.log.Timber;
-
 public class LibraryActivity extends AppCompatActivity {
 
     @Override
@@ -13,7 +11,7 @@ public class LibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_library);
 
         // Plant logger cf. Android Timber
-        Timber.plant(new Timber.DebugTree());
+        // Timber.plant(new Timber.DebugTree());
 
         // TODO build Retrofit
 

@@ -47,7 +47,6 @@ public class Book {
         Book book = (Book) o;
 
         return isbn.equals(book.isbn);
-
     }
 
     @Override
