@@ -15,10 +15,10 @@ public class BookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
-        TextView messageTextView = (TextView) findViewById(R.id.messageTextView);
+        TextView messageTextView = findViewById(R.id.messageTextView);
         messageTextView.setText(bookName);
 
-        Button sendNameButton = (Button) findViewById(R.id.sendNameButton);
+        Button sendNameButton = findViewById(R.id.sendNameButton);
         sendNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,6 +27,5 @@ public class BookActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }
