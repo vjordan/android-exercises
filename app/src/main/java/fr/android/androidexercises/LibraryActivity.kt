@@ -44,7 +44,7 @@ class LibraryActivity : AppCompatActivity() {
 
         return when (id) {
             R.id.action_settings -> true
-            else -> false
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
