@@ -29,6 +29,3 @@ dependencies {
             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             "com.squareup.okhttp3:okhttp:$okhttp_version")
 }
-repositories {
-    mavenCentral()
-}
