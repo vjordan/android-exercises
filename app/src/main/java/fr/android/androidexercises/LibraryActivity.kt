@@ -20,14 +20,26 @@ class LibraryActivity : AppCompatActivity() {
         checkBox = findViewById(R.id.checkBox)
     }
 
+    companion object {
+        const val CHECK = "CB"
+    }
+
     public override fun onSaveInstanceState(outState: Bundle) {
         // TODO save check box state
+        checkBox?.apply {
+            outState.putBoolean(CHECK, isChecked)
+        }
+
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+
         // TODO restore check box
+        checkBox?.apply {
+            isChecked = savedInstanceState.getBoolean(CHECK)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
