@@ -1,5 +1,6 @@
 package fr.android.androidexercises
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +8,8 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.Toast
+import java.util.*
 
 class LibraryActivity : AppCompatActivity() {
 
@@ -17,6 +20,7 @@ class LibraryActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val openButton = findViewById<Button>(R.id.openButton)
+        val dateButton = findViewById<Button>(R.id.dateButton)
 
         val book = Book("Garry Whopper", "CK Rowling")
 
@@ -25,6 +29,20 @@ class LibraryActivity : AppCompatActivity() {
             // TODO add parcel book to intent
             intent.putExtra("BOOK", book)
             startActivity(intent)
+        }
+
+        dateButton.setOnClickListener { v ->
+            val calendar = Calendar.getInstance()
+            DatePickerDialog(this,
+                    DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                        Toast.makeText(this,
+                                "$dayOfMonth/$month/$year",
+                                Toast.LENGTH_SHORT).show()
+                    },
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
     }
 
