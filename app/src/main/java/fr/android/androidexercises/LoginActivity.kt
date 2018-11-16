@@ -9,7 +9,7 @@ import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginLayout: ViewGroup
+    lateinit var loginLayout: ViewGroup
     private lateinit var loggedText: View
     private lateinit var presenter: LoginPresenter
     private lateinit var passwordEdit: EditText
